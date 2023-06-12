@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab02_tabSlide only CSS</title>
+    <style>
+        /* Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; }
+        li { list-style: none; }
+        body { font-family: 'Raleway', sans-serif; line-height: 1.5em; }
+        
+        /* Wrapper */
+        .wrapper {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+        }
+        
+        input[name=tabmenu] {
+            display: none;
+        }
+        
+        .wrapper h1 {
+            text-align: center;
+        }
+        
+        .wrapper hr {
+            width: 50px; height: 5px;
+            margin: 30px auto; 
+            border: none;
+            background-color: royalblue;
+        }
+        
+        /* Slide */
+        .slide {
+            position: relative;
+            width: 800px; height: 400px;
+            overflow: hidden;
+        }
+        
+        .slide__list {
+            position: absolute;
+            left: 0; top: 0;
+            width: inherit; height: 1200px;
+            transition: 0.5s;
+        }
+        
+        .slide__list li {
+            width: inherit; height: 400px;
+            padding: 50px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        .slide__list li img {
+            width: 100px;
+            border-radius: 50%;
+        }
+        
+        .slide__list li p {
+            margin: 20px 0;
+        }
+        
+        .slide__list li p b {
+            display: block;
+        }
+        
+        .slide__list li p span {
+            color: royalblue;
+        }
+        
+        /* Button */
+        .btn {
+            text-align: center;
+        }
+        
+        .btn label {
+            display: inline-block;
+            width: 10px; height: 10px;
+            background-color: #ccc;
+            transition: 0.5s;
+        }
+        
+        input[id=tab1]:checked ~ .slide .slide__list {
+            top: 0;
+        }
+        input[id=tab2]:checked ~ .slide .slide__list {
+            top: -400px;
+        }
+        input[id=tab3]:checked ~ .slide .slide__list {
+            top: -800px;
+        }
+        
+        input[id=tab1]:checked ~ .btn label[for=tab1],
+        input[id=tab2]:checked ~ .btn label[for=tab2],
+        input[id=tab3]:checked ~ .btn label[for=tab3] {
+            border-radius: 50%;
+            background-color: royalblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="radio" name="tabmenu" id="tab1" checked>
+        <input type="radio" name="tabmenu" id="tab2">
+        <input type="radio" name="tabmenu" id="tab3">
+        <h1>Our Member</h1>
+        <hr>
+        <div class="slide">
+            <ul class="slide__list">
+                <li>
+                    <img src="img/tab2_face01.jpg" alt="">
+                    <p>
+                        As we all know, it’s easy for marketers to brag about how great their product or service is. Writing compelling copy, shooting enticing photos, or even producing glamorous videos are all tactics we use to draw attention to our brands. While all of these strategies can be successful, there really is no better way to gain trust and prove the validity of your brand like customer testimonials.
+                    </p>
+                    <p>
+                        <b>Ackerley</b> Media Analyst at <span>ZenDesk</span>
+                    </p>
+                </li>
+                <li>
+                    <img src="img/tab2_face02.jpg" alt="">
+                    <p>
+                        As we all know, it’s easy for marketers to brag about how great their product or service is. Writing compelling copy, shooting enticing photos, or even producing glamorous videos are all tactics we use to draw attention to our brands. While all of these strategies can be successful, there really is no better way to gain trust and prove the validity of your brand like customer testimonials.
+                    </p>
+                    <p>
+                        <b>Dabria</b> Graphic Designer at <span>ChowNow</span>
+                    </p>
+                </li>
+                <li>
+                    <img src="img/tab2_face03.jpg" alt="">
+                    <p>
+                        As we all know, it’s easy for marketers to brag about how great their product or service is. Writing compelling copy, shooting enticing photos, or even producing glamorous videos are all tactics we use to draw attention to our brands. While all of these strategies can be successful, there really is no better way to gain trust and prove the validity of your brand like customer testimonials.
+                    </p>
+                    <p>
+                        <b>Vadim</b> Developer at <span>Startup Institute</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="btn">
+            <label for="tab1"></label>
+            <label for="tab2"></label>
+            <label for="tab3"></label>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>accordion03</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        li { list-style: none; }
+        img { vertical-align: top; }
+        body { background-color: #ddd; font-family: arial; color: #999; }
+        
+        /* Accordion */
+        .accordion {
+            width: 800px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .accordion__list {
+            background-color: #fff;
+            position: relative;
+        }
+        
+        .accordion__list img {
+            display: none;
+            position: absolute;
+            left: -110px; bottom: -15px;
+            transform: scale(0.9);
+        }
+        
+        .accordion__list h2 {
+            padding: 25px;
+            background: url(img/acc3_icon.png) no-repeat left top #f0f0f0;
+            font-size: 20px;
+            text-align: right;
+            color: #666;
+        }
+        
+        .accordion__list h2:hover {
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        .accordion__list h2.active {
+            background-position: left -60px;
+            color: var(--color);
+        }
+        
+        .accordion__list p {
+            display: none;
+            padding: 20px 20px 20px 350px;
+            font-size: 15px;
+            line-height: 30px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <img src="img/acc3_logo.png" alt="로고" class="accordion__logo">
+        <ul class="accordion__box">
+            <li class="accordion__list">
+                <img src="img/acc3_nin01.png" alt="레오나르도">
+                <h2 style="--color:darkblue;">Leonardo</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae optio commodi necessitatibus qui, modi sunt illum ex amet, placeat? Dolorem est nihil distinctio ad nostrum vitae, minus fugit doloribus quo!
+                </p>
+            </li>
+            <li class="accordion__list">
+                <img src="img/acc3_nin02.png" alt="도나텔로">
+                <h2 style="--color:rebeccapurple;">Donatello</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae optio commodi necessitatibus qui, modi sunt illum ex amet, placeat? Dolorem est nihil distinctio ad nostrum vitae, minus fugit doloribus quo!
+                </p>
+            </li>
+            <li class="accordion__list">
+                <img src="img/acc3_nin03.png" alt="라파엘">
+                <h2 style="--color:darkred;">Raphael</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae optio commodi necessitatibus qui, modi sunt illum ex amet, placeat? Dolorem est nihil distinctio ad nostrum vitae, minus fugit doloribus quo!
+                </p>
+            </li>
+            <li class="accordion__list">
+                <img src="img/acc3_nin04.png" alt="미켈란젤로">
+                <h2 style="--color:orange;">Michelangelo</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae optio commodi necessitatibus qui, modi sunt illum ex amet, placeat? Dolorem est nihil distinctio ad nostrum vitae, minus fugit doloribus quo!
+                </p>
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        $(function(){
+            $('.accordion__list').click(function(){
+                const me = $(this).children('h2')
+                const other = $(this).siblings().children('h2')
+                
+                if(me.hasClass('active') == true) {
+                    me.removeClass('active')
+                    me.next().slideUp()
+                    me.prev().fadeOut(200)
+                } 
+                
+                else {
+                    me.addClass('active')
+                    other.removeClass('active')
+                    
+                    me.next().slideDown()
+                    other.next().slideUp()
+                    
+                    me.prev().fadeIn(200)
+                    other.prev().fadeOut(200)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

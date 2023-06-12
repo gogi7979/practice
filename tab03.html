@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>tab03_tabSlide only CSS</title>
+    <style>
+        /* Web Font */
+        @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; }
+        li { list-style: none; }
+        body { font-family: 'NIXGONM-Vb'; }
+        
+        /* Slide */
+        input[name=tabmenu] {
+            display: none;
+        }
+        
+        .slide {
+            position: relative;
+            width: 100%; height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slide__box {
+            position: absolute;
+            left: 0; top: 0;
+            width: 300%; height: 100vh;
+            transition: 0.3s;
+        }
+        
+        .slide li {
+            position: relative;
+            width: 33.3333%; height: 100vh;
+            float: left;
+        }
+        
+        .slide li:nth-child(1) {
+            background: url(img/tab3_slide01.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        .slide li:nth-child(2) {
+            background: url(img/tab3_slide02.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        .slide li:nth-child(3) {
+            background: url(img/tab3_slide03.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        
+        .slide li:nth-child(1):before,
+        .slide li:nth-child(2):before,
+        .slide li:nth-child(3):before {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #333, transparent);
+            opacity: 0;
+            transition: 0.3s;
+            transition-delay: 0.5s;
+        }
+        
+        /* Text */
+        .slide__text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-100%);
+            width: 100%;
+            padding: 50px;
+            color: #fff;
+            opacity: 0;
+            transition: 0.5s;
+            transition-delay: 0.8s;
+        }
+        
+        .slide__text h1 {
+            font-size: 50px;
+            font-weight: 700;
+        }
+        
+        .slide__text p {
+            line-height: 50px;
+        }
+        
+        /* Button */
+        .btn {
+            position: absolute;
+            left: 0; bottom: 30px;
+            width: 100%;
+            padding: 10px 0;
+            background-color: rgba(17, 17, 17, 0.7);
+            text-align: center;
+        }
+        
+        .btn label {
+            display: inline-block;
+            margin: 0 20px;
+            color: #fff;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        
+        input[id=tab1]:checked ~ .slide .slide__box {
+            left: 0;
+        }
+        input[id=tab2]:checked ~ .slide .slide__box {
+            left: -100%;
+        }
+        input[id=tab3]:checked ~ .slide .slide__box {
+            left: -200%;
+        }
+        
+        input[id=tab1]:checked ~ .slide .slide__box li:nth-child(1):before,
+        input[id=tab2]:checked ~ .slide .slide__box li:nth-child(2):before,
+        input[id=tab3]:checked ~ .slide .slide__box li:nth-child(3):before {
+            opacity: 0.5;
+        }
+        
+        input[id=tab1]:checked ~ .slide .slide__box li:nth-child(1) .slide__text,
+        input[id=tab2]:checked ~ .slide .slide__box li:nth-child(2) .slide__text,
+        input[id=tab3]:checked ~ .slide .slide__box li:nth-child(3) .slide__text {
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+        
+        input[id=tab1]:checked ~ .btn label[for=tab1],
+        input[id=tab2]:checked ~ .btn label[for=tab2],
+        input[id=tab3]:checked ~ .btn label[for=tab3] {
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="radio" name="tabmenu" id="tab1" checked>
+        <input type="radio" name="tabmenu" id="tab2">
+        <input type="radio" name="tabmenu" id="tab3">
+        <div class="slide">
+            <ul class="slide__box">
+                <li>
+                    <div class="slide__text">
+                        <h1>Go back to yours<br>natural skin</h1>
+                        <p>건강한 뷰티 밸런스 케어로 자연스러운 나의 건강한 피부를 지키세요</p> 
+                    </div>
+                </li>
+                <li>
+                    <div class="slide__text">
+                        <h1>Truly Natural,<br>Sensorial Beauty</h1>
+                        <p>우리의 피부, 소중한 자연과 만납니다.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide__text">
+                        <h1>Go back to yours<br>natural skin</h1>
+                        <p>건강한 뷰티 밸런스 케어로 자연스러운 나의 건강한 피부를 지키세요</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="btn">
+            <label for="tab1">Skin Care</label>
+            <label for="tab2">Truly Natural</label>
+            <label for="tab3">Beauty</label>
+        </div>
+    </div>
+</body>
+</html>

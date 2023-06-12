@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav03_slide</title>
+    <style>
+        /* Google Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+        
+        /*Reset CSS*/
+        * { margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        li { list-style: none; }
+        body { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(45deg, #8a9bef, #d690a9, #fec440); 
+        }
+        
+        /* nav section */
+        .logo { 
+            height: 80px;
+            margin-bottom: 50px;
+        }
+        
+        .logo img { 
+            height: 100%; 
+        }
+        
+        .nav {
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .nav a {
+            position: relative;
+            display: inline-block;
+            width: 80px; height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+        }
+        
+        .nav a:before, .nav a:after {
+            content: attr(data-link);
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .nav a:before {
+            top: 0; left: 0;
+        }
+        
+        .nav a:after {
+            top: 100%; left: 0;
+            font-weight: bold;
+            color: #608df9;
+        }
+        
+        .nav a:hover:before {
+            top: -100%;
+        }
+        
+        .nav a:hover:after {
+            top: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="img/logo_daum.png" alt="로고">
+    </div>
+    <div class="nav">
+        <a href="#none" data-link="카페"></a>
+        <a href="#none" data-link="메일"></a>
+        <a href="#none" data-link="뉴스"></a>
+        <a href="#none" data-link="지도"></a>
+        <a href="#none" data-link="증권"></a>
+        <a href="#none" data-link="쇼핑"></a>
+        <a href="#none" data-link="카카오TV"></a>
+        <a href="#none" data-link="웹툰"></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover06_formUI with Jquery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" ></script>
+    <style>
+        /* Fontawesome 4.7 */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /* Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500&display=swap');
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh;}
+        h4 { font-weight: 500; }
+        
+        /* Item */
+        .item {
+            position: relative;
+            width: 300px; height: 400px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .item img {
+            height: inherit;
+            transform: scale(1.1);
+        }
+        
+        .content {
+            position: absolute;
+            left: 0; bottom: -250px;
+            width: 100%; height: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #000;
+            transition: 0.5s;
+        }
+        
+        .item:hover img {
+            filter: blur(2px);
+        }
+        
+        .item:hover .content {
+            bottom: 0;
+        }
+        
+        .content__title,
+        .content__info,
+        .content__btn {
+            margin: 10px 0;
+        }
+        
+        /* Title */
+        .content__title {
+            overflow: hidden;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .content__title h4 {
+            float: left;
+            color: #999;
+            font-weight: 300;
+        }
+        
+        .content__title h4 strong {
+            display: block;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .content__title span {
+            float: right;
+            padding-top: 10px;
+            color: crimson;
+            font-size: 18px;
+        }
+        
+        /* Info */
+        .content__info {
+            position: relative;
+        }
+        
+        .content__info--size {
+            margin-bottom: 10px;
+        }
+        
+        .content__info--size span {
+            display: inline-block;
+            width: 15px; height: 15px;
+            padding: 3px;
+            border-radius: 3px;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .content__info--size span.active {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .content__info--color span {
+            display: inline-block;
+            width: 17px; height: 17px;
+            text-indent: -9999px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .content__info--color span:nth-of-type(1) { box-shadow: 0 0 1px #000; }
+        .content__info--color span:nth-of-type(2) { background-color: #000; }
+        .content__info--color span:nth-of-type(3) { background-color: crimson; }
+        .content__info--color span:nth-of-type(4) { background-color: pink}
+        .content__info--color span:nth-of-type(5) { background-color: skyblue;}
+        
+        .content__info--color span.active {
+            border-radius: 50%;
+        }
+        
+        .content__info--like {
+            cursor: pointer;
+        }
+        
+        .content__info--like:before {
+            content: '\f08a';
+            position: absolute;
+            top: 10px; right: 0;
+            font-family: fontawesome;
+        }
+        
+        .content__info--like.active:before {
+            content: '\f004';
+            color: crimson;
+        }
+        
+        /* btn */
+        .content__btn {
+            width: 100%;
+            padding: 7px; 
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        .content__btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="item">
+        <img src="img/hover6_model.png" alt="">
+        <div class="content">
+            <div class="content__title">
+                <h4><strong>Underwear Set</strong> Women's Bra and Panty </h4>
+                <span>$55.99</span>
+            </div>
+            <div class="content__info">
+                <div class="content__info--size size">
+                    <h4>Sizes</h4>
+                    <span>XS</span> <span>S</span> <span>M</span> <span>L</span> <span>XL</span>
+                </div>
+                <div class="content__info--color color">
+                    <h4>Colors</h4>
+                    <span>아이보리</span> <span>블랙</span> <span>레드</span> <span>핑크</span> <span>스카이블루</span>
+                </div>
+                <span class="content__info--like like"></span>
+            </div>
+            <button class="content__btn">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.size span, .color span').click(function(){
+                $(this).addClass('active')
+                $(this).siblings().removeClass('active')
+            })
+            
+            $('.like').click(function(){
+                $(this).toggleClass('active')
+            })
+        })
+    </script>
+</body>
+</html>

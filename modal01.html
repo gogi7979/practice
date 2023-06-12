@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>modal01_fadeIn with jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* Web fonts */
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+        
+        * { margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;  }
+        a { text-decoration: none; color: inherit; }
+        
+        .btn-active {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            border-radius: 30px;
+            background-color: royalblue;
+            color: #fff;
+        }
+        
+        .modal { 
+            display: none;
+            position: fixed;
+            left: 0; top: 0;
+            width: 100%; height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .modal-content {
+            position: absolute;
+            left: 50%; top: 50%; 
+            transform: translate(-50%, -50%);
+            width: 350px;
+            padding: 30px; 
+            box-sizing: border-box;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .modal-content h2 {
+            color: royalblue;
+        }
+        
+        .modal-content p {
+            color: #999;
+        }
+        
+        .modal-content img {
+            position: relative;
+            width: 60%;
+            margin: 30px 0;
+        }
+        
+        .btn-share {
+            display: block;
+            padding: 15px 30px;
+            border-radius: 5px;
+            background-color: royalblue;
+            color: #fff;
+        }
+        
+        .btn-close {
+            position: absolute;
+            left: 50%; bottom: -35px;
+            transform: translateX(-50%);
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <a href="#none" class="btn-active">내 계좌 모두 찾기</a>
+    <div class="modal">
+        <div class="modal-content">
+            <h2>내 계좌 모두 찾기로 숨은 돈 19,380원을 찾았습니다!</h2>
+            <p>
+                휴면계좌 해지 후 즉시 출금 가능합니다.
+            </p>
+            <img src="img/modal_money.png" alt="">
+            <a href="#none" class="btn-share">공유하기</a>
+            <a href="#none" class=btn-close> 닫기 X </a>
+        </div>
+    </div>
+    
+    <script>
+        $('.btn-active').click(function(){
+            $('.modal').fadeIn()
+        })
+        $('.btn-close').click(function(){
+            $('.modal').fadeOut()
+        })
+    </script>
+</body>
+</html>

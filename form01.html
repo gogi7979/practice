@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form01_로그인</title>
+    <style>
+        /* Fontawesome 4.7 */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /* Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+        * { font-family: 'Raleway', sans-serif; }
+        
+        a { text-decoration: none; color: inherit; }
+        
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            background: url(img/form1_background.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; z-index: -1;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .login {
+            width: 600px;
+            padding: 25px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background-color: #eee;
+        }
+        
+        .login span {
+            display: block;
+        }
+        
+        .login input[type=email],
+        .login input[type=password] {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #ddd;
+            
+        }
+        
+        .login input[type=email] {
+            background: #fff url(img/form1_icon-email.png) no-repeat center left 5px;
+        }
+        
+        .login input[type=password] {
+            background: #fff url(img/form1_icon-lock.png) no-repeat center left 5px;
+        }
+        
+        .login input[type=email]:hover,
+        .login input[type=password]:hover {
+            border: 1px solid mediumslateblue;
+            box-shadow: 0 0 5px mediumslateblue;
+        }
+        
+        .login input[type=email]:focus::placeholder,
+        .login input[type=password]:focus::placeholder {
+            visibility: hidden;
+        }
+        
+        .login p {
+            overflow: hidden;
+        }
+        
+        .login p input[type=checkbox] {
+            display: none; 
+        }
+        
+        .login p label:before {
+            content: '\f00c';
+            display: inline-block;
+            width: 15px; height: 15px;
+            margin-right: 3px;
+            border: 1px solid #333;
+            font-family: fontawesome;
+            vertical-align: middle;
+            color: transparent;
+            transition: 0.2s;
+        }
+        
+        .login p input[type=checkbox]:checked + label:before {
+            color: #fff;
+            background-color: mediumslateblue;
+            border-color: transparent;
+        }
+        
+        .login p input[type=checkbox] + label:active:before {
+            transform: scale(0);
+        }
+        
+        .login p label {
+            float: left;
+        }
+        
+        .login p a {
+            float: right;
+        }
+        
+        .login p a:hover {
+            text-decoration: underline;
+        }
+        
+        .login button {
+            width: 250px;
+            padding: 10px;
+            border-radius: 3px;
+            border: none;
+            background-color: mediumslateblue;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <form class="login">
+        <span>Email</span>
+        <input type="email" placeholder="Email Address">
+        <span>Password</span>
+        <input type="password" placeholder="Password">
+        <p>
+            <input type="checkbox" id="chk"><label for="chk">Keep me logged in</label>
+            <a href="#none" class="login__btn-forgot">Forgot Your Password?</a>
+        </p>
+        <button>Log in</button>
+    </form>
+</body>
+</html>

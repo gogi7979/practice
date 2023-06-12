@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>gnb07_only css</title>
+    <style>
+        /* Google Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+        
+         /* Fontawesome 4.7 */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; }
+        a { text-decoration: none; color: inherit; }
+        li { list-style: none; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        /* gnb section */
+        .gnb {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .gnb__list {
+            width: 280px;
+            box-sizing: border-box;
+        }
+        .gnb__btn {
+            display: block;
+            position: relative;
+            padding: 12px 18px;
+            background-color: #573cfa;
+            color: #fff;
+        }
+        
+        .gnb__btn:before {
+            content: '';
+            position: absolute;
+            bottom: -5px; z-index: 1;
+            width: 14px; height: 14px;
+            transform: rotate(45deg);
+            background-color: #573cfa;
+        }
+        
+        .gnb__btn i {
+            margin-right: 10px;
+        }
+        
+        .gnb__subMenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        
+        .gnb__subMenu a {
+            display: block;
+            position: relative;
+            padding: 12px 30px;
+            background-color: #f0f0f0;
+        }
+        
+        .gnb__subMenu a:before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 5px; height: 90%;
+            background-color: #573cfa;
+            opacity: 0;
+        }
+        
+        .gnb__list:last-child a:before {
+            display: none;
+        }
+        
+        .gnb__subMenu a:hover:before {
+            opacity: 1;
+        }
+        
+        .gnb__list:target .gnb__subMenu {
+            max-height: 10em;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <ul class="gnb">
+        <li class="gnb__list" id="user">
+           <a href="#user" class="gnb__btn"><i class="fa fa-user"></i>유저 닉네임</a>
+           <div class="gnb__subMenu">
+               <a href="#none">작성한 글</a>
+               <a href="#none">사진첩</a>
+           </div>
+        </li>
+        <li class="gnb__list" id="messages">
+           <a href="#messages" class="gnb__btn"><i class="fa fa-envelope"></i> 메일함</a>
+           <div class="gnb__subMenu">
+               <a href="#none">받은 메일</a>
+               <a href="#none">보낸 메일</a>
+               <a href="#none">스팸함</a>
+           </div>
+        </li>
+        <li class="gnb__list" id="setting">
+           <a href="#setting" class="gnb__btn"><i class="fa fa-cog"></i> 설정</a>
+           <div class="gnb__subMenu">
+               <a href="#none">비밀번호 변경</a>
+               <a href="#none">언어 변경</a>
+           </div>
+        </li>
+        <li class="gnb__list">
+           <a href="#" class="gnb__btn"><i class="fa fa-sign-out"></i> 로그아웃</a>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover08_Border Animation</title>
+    <style>
+        a { text-decoration: none; color: inherit; }
+        body { background-color: #333; color: #fff; }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            column-gap: 50px;
+        }
+        
+        .card {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .card span {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            border: 1px solid #fff;
+            border-radius: 40% 60% 54% 35% / 40% 45% 55% 60%;
+            animation: circle 5s linear infinite;
+            transition: 0.3s;
+        }
+        
+        .card span:nth-child(1) { animation: circle 6s linear infinite; }
+        .card span:nth-child(2) { animation: circle 4s linear infinite reverse; }
+        .card span:nth-child(3) { animation: circle 10s linear infinite; }
+        
+        .card:hover span:nth-child(1) { opacity: 0.3; }
+        .card:hover span:nth-child(2) { opacity: 0.6; }
+        .card:hover span:nth-child(3) { opacity: 0.8; }
+        
+        .card:nth-child(1):hover span { background: crimson; border: none; }
+        .card:nth-child(2):hover span { background: sandybrown; border: none; }
+        .card:nth-child(3):hover span { background: cornflowerblue; border: none; }
+        
+        .card__text {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            font-size: 14px; 
+            text-align: center;
+        }
+        
+        .card__text p {
+            margin-bottom: 20px;
+        }
+        
+        .card__text a {
+            padding: 5px 10px;
+            border: 1px solid;
+            border-radius: 40% 60% 53% 20%;
+            font-size: 12px;
+        }
+        
+        @keyframes circle {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="card__text">
+                <h2>Heading Text</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio explicabo tenetur, reiciendis molestias ipsam velit commodi minima incidunt temporibus non repellendus similique maxime odit minus a, distinctio quod. Dolorem, consequatur.
+                </p>
+                <a href="#none">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="card__text">
+                <h2>Heading Text</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio explicabo tenetur, reiciendis molestias ipsam velit commodi minima incidunt temporibus non repellendus similique maxime odit minus a, distinctio quod. Dolorem, consequatur.
+                </p>
+                <a href="#none">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="card__text">
+                <h2>Heading Text</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio explicabo tenetur, reiciendis molestias ipsam velit commodi minima incidunt temporibus non repellendus similique maxime odit minus a, distinctio quod. Dolorem, consequatur.
+                </p>
+                <a href="#none">Read More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

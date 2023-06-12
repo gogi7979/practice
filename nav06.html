@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gnb06_accordion with jquery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" ></script>
+    <style>
+        /* Google Web Fonts */
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+        
+        /* reset css */
+        * {margin: 0; padding: 0;}
+        a {text-decoration: none; color: inherit;}
+        li {list-style: none;}
+        body {font-family: 'Montserrat', sans-serif;}
+        
+        /* gnb section*/
+        .gnb {
+            width: 130px; height: 100vh;
+            margin-left: 50px; 
+            padding-top: 30vh;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        .gnb__title {
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .gnb__subMenu {
+            display: none;
+            margin-bottom: 20px;
+        }
+        
+        .gnb__subMenu a {
+            display: block;
+            padding: 5px 20px;
+            font-size: 11px;
+        }
+        
+        .gnb__title:hover,
+        .gnb__subMenu a:hover {
+            color: #555;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul class="gnb">
+        <li>
+            <p class="gnb__title"><a href="#none">ABOUT</a></p>
+        </li>
+        <li>
+            <p class="gnb__title">SHOP</p>
+            <div class="gnb__subMenu">
+                <a href="#none">OUTTER</a>
+                <a href="#none">TOP</a>
+                <a href="#none">DRESS</a>
+                <a href="#none">BOTTOM</a>
+                <a href="#none">ACC</a>
+                <a href="#none">SALE</a>
+            </div>
+        </li>
+        <li>
+            <p class="gnb__title">BOARD</p>
+            <div class="gnb__subMenu">
+                <a href="#none">NOTICE</a>
+                <a href="#none">Q&A</a>
+                <a href="#none">REVIEW</a>
+            </div>
+        </li>
+        <li>
+            <p class="gnb__title">MYSHOP</p>
+             <div class="gnb__subMenu">
+                <a href="#none">MYSHOP</a>
+                <a href="#none">ORDER</a>
+                <a href="#none">WISH</a>
+                <a href="#none">MILEAGE</a>
+            </div>
+        </li>
+        <li>
+            <p class="gnb__title">ACCOUNT</p>
+            <div class="gnb__subMenu">
+                <a href="#none">LOGIN</a>
+                <a href="#none">JOIN (+2000P)</a>
+            </div>
+        </li>
+        <li>
+            <p class="gnb__title"><a href="#none">CART (0)</a></p>
+        </li>
+    </ul>
+    
+    <script>
+        $(function(){
+            $('.gnb__title').click(function(){
+                $('.gnb__subMenu').slideUp('fast')
+                $(this).next('.gnb__subMenu').stop().slideToggle('fast')
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav04_opacity</title>
+    <style>
+        /* Google Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+    
+        /* Fontawesome 4.7 */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /*reset css*/
+        * {margin: 0; padding: 0;}
+        a {text-decoration: none; color: inherit;}
+        body { font-family: 'Raleway', sans-serif; background-color: royalblue;}
+        
+        /* nav section */
+        .nav {
+            position: absolute;
+            top: 50%; left: 50px;
+            transform: translateY(-50%);
+        }
+        
+        .nav a {
+            display: block;
+            margin: 10px 0; 
+            font-size: 40px;
+            color: #fff;
+            transition: 0.3s;
+        }
+        
+        .nav a:before {
+            content: '\f105';
+            margin-right: 10px;
+            font-family: fontawesome;
+            opacity: 0;
+        }
+        
+        .nav:hover a {
+            opacity: 0.3;
+        }
+        
+        .nav a:hover {
+            opacity: 1;
+        }
+        
+        .nav a:hover:before {
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#none">New Arrivals</a>
+        <a href="#none">Summer Collection</a>
+        <a href="#none">Winter Collection</a>
+        <a href="#none">Special Offers</a>
+        <a href="#none">Trends</a>
+    </div>
+</body>
+</html>

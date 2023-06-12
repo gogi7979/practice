@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab05_tabMenu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* Web Font */
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+        
+        /* Bootstrap Icons */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        a { text-decoration: none; color: inherit; }
+        li { list-style: none; }
+        body { font-family: 'Montserrat', 'sans-serif'; background-color: #eee; color: #333; }
+        
+        /* Tab */
+        .tab {
+            width: 700px;
+            margin: auto;
+        }
+        
+        .tab__btn a {
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+            border-top: 3px solid transparent;
+            background-color: #333;
+            text-align: center;
+            color: #fff;
+            transition: 0.3s;
+        }
+        
+        .tab__btn a.active {
+            border-top: 3px solid royalblue;
+            background-color: #fff;
+            color: #333;
+        }
+        
+        .tab__content {
+            position: relative;
+        }
+        
+        .tab__box {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 25px;
+            position: absolute;
+            left: 0; top: 0;
+            padding: 20px;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+        
+        .tab img {
+            width: 100%;
+        }
+        
+        .tab__box:target,
+        .tab__box:nth-child(1) {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab__btn">
+            <a href="#tab1" class="active"><i class="bi bi-emoji-smile-fill"></i> LONDON</a>
+            <a href="#tab2"><i class="bi bi-chat-dots-fill"></i> PARIS</a>
+            <a href="#tab3"><i class="bi bi-camera-fill"></i> NEW YORK</a>
+            <a href="#tab4"><i class="bi bi-heart-fill"></i> DUBAI</a>
+        </div>
+        <ul class="tab__content">
+            <li id="tab1" class="tab__box">
+                <h2>London</h2>
+                <p>
+                    As the “capital of capitals”—still waist-deep in an opaque pandemic slurry—negotiates the uncharted, perilous terrain of a post-Brexit world, London continues to reign the planet’s best cities for the sixth year running. Its position at the top, however, has never been more tenuous.
+                </p>
+                <img src="img/tab6_city01.jpg" alt="">
+            </li>
+            <li id="tab2" class="tab__box">
+                <h2>Paris</h2>
+                <p>
+                    Paris attacked the pandemic not only with its doctors and health-care workers, but also with its urban planners. For all the talk of learning from the pandemic, one city appears to be going all-in on the hard lessons it gave and their application to molecular urban change.
+                </p>
+                <img src="img/tab6_city02.jpg" alt="">
+            </li>
+            <li id="tab3" class="tab__box">
+                <h2>New York</h2>
+                <p>
+                    If New York City forgot about how bad life can get for its citizenry, the past 18 months were a hellish reminder. The greatest city in America—lauded and crowned in our ranking for the past six years and in countless others for many more—was a ghastly reminder during the pandemic.
+                </p>
+                <img src="img/tab6_city03.jpg" alt="">
+            </li>
+            <li id="tab4" class="tab__box">
+                <h2>Dubai</h2>
+                <p>
+                    An alluring blend of over-the-top experiences, Arab heritage and luxury shopping, Dubai is so over the pandemic. Dubai is a city of superlatives: you can ride the elevator to the top of the world’s tallest building for a bird’s-eye view, bet on the ponies at the world’s richest.
+                </p>
+                <img src="img/tab6_city04.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script>
+        $('.tab__btn a').click(function(){
+            $(this).addClass('active')
+            $(this).siblings('.tab__btn a').removeClass('active')
+        })
+    </script>
+</body>
+</html>

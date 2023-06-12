@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>accordion04</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* FontAwesome CDN 4.7 */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /* Web Font */
+        @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        li { list-style: none; }
+        body { font-family: 'NanumSquare', sans-serif; font-size: 15px; }
+        
+        /* Header */
+        header { 
+            padding: 50px 0;
+            text-align: center; 
+        }
+        
+        header h1 { 
+            font-size: 4em;
+            font-weight: 400;
+            color: #4e4dc7;
+        }
+        
+        header h1 span {
+            position: relative;
+            font-weight: 800;
+        }
+        
+        header h1 span:after {
+            content: '';
+            position: absolute;
+            right: -50px; top: -30px;
+            width: 50px; height: 50px;
+            background: url(img/acc4_logo.png) no-repeat center center;
+            background-size: contain;
+        }
+        
+        header p {
+            color: #251a71;
+        }
+        
+        /* Accordion */
+        .content {
+            display: flex;
+            align-items: center;
+            width: 1000px;
+            margin: auto;
+            grid-gap: 20px;
+        }
+        
+        .accordion {
+            flex: 1;
+        }
+        
+        .accordion__list {
+            margin-bottom: 10px; 
+        }
+        
+        .accordion__title {
+            padding: 10px;
+            background-color: #e9eaed;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        
+        .accordion__title:hover, 
+        .accordion__title.active {
+            background-color: #4e4dc7;
+            color: #fff;
+        }
+        
+        .accordion__title:after {
+            content: '\f105';
+            float: right;
+            font-family: fontawesome;
+            font-size: 1.2em;
+        }
+        
+        .accordion__title.active:after {
+            transform: rotate(90deg);
+        }
+        
+        .accordion__desc {
+            display: none;
+            padding: 15px;
+            background-color: #e9eaed;
+        }
+        
+        .accordion__desc.active {
+            display: block;
+        }
+        
+        .image {
+            flex: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>해커스토익 <span>빅플</span></h1>
+            <p>
+                비현실적인 토익점수 상승!
+                <br>
+                <strong>'최고의 토익 콘텐츠'</strong>와 <strong>'인공지능 기술'</strong>로 현실이 됩니다.
+            </p>
+        </header>
+        <div class="content">
+            <ul class="accordion">
+                <li class="accordion__list">
+                    <div class="accordion__title active" data-image="img/acc4_app01.png">
+                        취약유형, 도전유형, 우수유형 실시간 파악 및 심층분석
+                    </div>
+                    <div class="accordion__desc active">
+                        빅플로 학습할수록 실시간으로 올라가는<br>
+                        나의 '토익점수'와 '우수유형'을 확인하세요!
+                    </div>
+                </li>
+                <li class="accordion__list">
+                    <div class="accordion__title" data-image="img/acc4_app02.png">
+                        내 토익 점수잡는 최단기 커리큘럼 완성
+                    </div>
+                    <div class="accordion__desc">
+                        실시간 업데이트 되는 최적의 커리큘럼으로<br>
+                        나에게 '딱' 맞는 학습플랜을 세웁니다.
+                    </div>
+                </li>
+                <li class="accordion__list">
+                    <div class="accordion__title" data-image="img/acc4_app03.png">
+                        1위 해커스 토익문제/강의
+                    </div>
+                    <div class="accordion__desc">
+                        약 2만여개의 검증된 해커스토익 빅플 콘텐츠 중<br>
+                        지금 나에게 '딱' 필요한 문제와 강의만 공부하세요
+                    </div>
+                </li>
+                <li class="accordion__list">
+                    <div class="accordion__title" data-image="img/acc4_app04.png">
+                        1등 해커스 스타강사 강의로 토익점수 수직 상승
+                    </div>
+                    <div class="accordion__desc">
+                        파트별/난이도별 전문화된 스타강사진 강의로<br>
+                        빅플에서 이론부터 실전까지 마스터하세요
+                    </div>
+                </li>
+            </ul>
+            <div class="image">
+                <img src="img/acc4_app01.png" alt="">
+            </div>    
+        </div>
+    </article>
+    <script>
+        $(function(){
+            $('.accordion__list').click(function(){
+                const me = $(this).children('.accordion__title')
+                const other = $(this).siblings().children('.accordion__title')
+                
+                me.addClass('active')
+                other.removeClass('active')
+                
+                other.next().stop().slideUp()
+                me.next().stop().slideDown()
+                
+                const dataImage = me.attr('data-image')
+                $('.image img').attr('src', dataImage)
+            })
+        })
+    </script>
+</body>
+</html>

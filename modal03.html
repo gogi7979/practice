@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>modal03_animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* Font Awesome */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /* Web Fonts */
+        @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+        
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+        
+        /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        a { text-decoration: none; color: inherit;}
+        body { background-color: #6bdddd; font-family: 'Noto Sans KR', sans-serif; }
+        
+        .btn-open {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            border: none;
+            background-color: #fff;
+            font-size: 50px;
+            color: #4069ce;
+            cursor: pointer;
+        }
+        
+        .btn-open:before {
+            content: '배송알림';
+            position: absolute;
+            left: 50%; top: -60px;
+            transform: translateX(-50%);
+            width: 100px;
+            padding: 5px 0;
+            border-radius: 30px;
+            background-color: #4069ce;
+            font-family: 'yg-jalnan';
+            font-size: 14px;
+            color: #fff;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        
+        .btn-open:hover:before {
+            opacity: 1;
+            top: -40px;
+        }
+        
+        .modal {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-80%, -50%);
+            width: 400px;
+            padding: 40px;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 10px solid #4069ce;
+            box-shadow: 0 50px 100px rgba(63, 83, 134, 0.3);
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden; 
+            transition: 0.3s;
+        }
+        
+        .modal.active {
+            transform: translate(-50%, -50%);
+            box-shadow: 0 50px 100px rgba(63, 83, 134, 0.5);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .btn-close {
+            position: absolute;
+            right: 30px; top: 30px; 
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            border: 5px solid #4069ce;
+            font-size: 18px;
+            color: #4069ce;
+            cursor: pointer;
+        }
+        
+        .modal-content {
+            position: relative;
+            text-align: center;
+        }
+        
+        .modal-content:before{
+            position: absolute;
+            left: 50%; top: 0; z-index: -1;
+            transform: translateX(-50%);
+            content: '';
+            width: 250px; height: 250px;
+            border-radius: 50%;
+            background-color: rgba(152, 179, 245, 0.3);
+        }
+        
+        .modal-content img {
+            width: 100%;
+        }
+        
+        .modal-content h2 {
+            font-family: 'yg-jalnan';
+            color: #4069ce;
+        }
+        
+        .modal-content p {
+            font-size: 14px;
+            margin: 20px 0;
+        }
+        
+        .modal-content p span {
+            display: block;
+        }
+        
+        .btn-deli {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: #4069ce;
+            font-size: 14px;
+            font-family: 'yg-jalnan';
+            color: #fff;
+        }
+        
+        .btn-deli:hover {
+            background-color: #5377d0;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <button class="btn-open" onclick="openModal()"><i class="fa fa-commenting-o"></i></button>
+    <div class="modal" id="">
+        <button class="btn-close"><i class="fa fa-times"></i></button>
+        <div class="modal-content">
+            <img src="img/modal_delivery.png" alt="">
+            <h2>배송이 시작되었습니다</h2>
+            <p>
+                <span>주문번호 :1829384923</span>
+                주문하신 상품이 발송 되었습니다.
+            </p>
+            <a href="#none" class="btn-deli">실시간 배송 조회</a>
+        </div>
+    </div>
+    <script>
+        $('.btn-open').click(function(){
+            $('.modal').addClass('active')
+        })
+        $('.btn-close').click(function(){
+            $('.modal').removeClass('active')
+        })
+    </script>
+</body>
+</html>

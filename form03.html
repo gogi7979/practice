@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>form03_상담폼</title>
+    <style>
+        /* Web Fonts */
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+        
+        /* Reset css */
+        * { margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; }
+        body { font-size: 15px; }
+        
+        section {
+            width: 1000px;
+            margin: auto;
+        }
+        
+        /* header */
+        .consulting__header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .consulting__header h1 {
+            font-size: 2em;
+        }
+        
+        .consulting__header hr {
+            width: 50px; height: 3px;
+            margin: 25px auto;
+            border: none;
+            background-color: #999;
+        }
+        
+        /* form */
+        .form__row {
+            display: flex;
+            margin: 10px 0;
+            column-gap: 10px; 
+        }
+        
+        .form__field {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form__field label {
+            margin-bottom: 10px;
+        }
+        
+        .form__field label b {
+            color: crimson;
+        }
+        
+        .form__field input,
+        .form__field select,
+        .form__field textarea {
+            padding: 7px;
+            border: 1px solid #999;
+            border-radius: 3px;
+        }
+        
+        /* form policy */
+        .form__policy {
+        }
+        
+        .form__policy iframe {
+            width: 100%;
+            margin: 10px 0;
+            border: 1px solid #999;
+            border-radius: 3px;
+        }
+        
+        .form__btn {
+            display: block;
+            padding: 7px 50px; 
+            margin: 40px auto;
+            background-color: #fff;
+            border: 1px solid #999;
+            cursor: pointer;
+        }
+        
+        @media screen and (max-width: 768px) {
+            section {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .consulting__form {
+                padding: 20px;
+            }
+            
+            .form__row {
+                flex-direction: column;
+            }
+            
+            .form__field {
+                margin: 10px 0; 
+            }
+            
+            .form__btn {
+                width: 100%;
+                padding: 15px 50px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div class="consulting__header">
+            <h1>
+                예약문의
+            </h1>
+            <hr>
+            <p>
+                방문 전 예약과 관련하여 문의 및 상담을 진행하고 있습니다.
+                <br>
+                문의 및 상담글을 남겨주시면 확인 후 연락드리도록 하겠습니다.
+           </p>
+        </div>
+        <form class="consulting__form">
+            <div class="form__row">
+                <div class="form__field">
+                    <label>이름 <b>*</b></label>
+                    <input type="text" placeholder="이름을 입력하세요">
+                </div>
+                <div class="form__field">
+                    <label>이메일 <b>*</b></label>
+                    <input type="mail" placeholder="이메일을 입력하세요">
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="form__field">
+                    <label>연락처 <b>*</b></label>
+                    <input type="tel" placeholder="연락처를 입력하세요">
+                </div>
+                <div class="form__field">
+                    <label>상담구분 <b>*</b></label>
+                    <select>
+                        <option>아동</option>
+                        <option>청소년</option>
+                        <option>성인</option>
+                        <option>부부</option>
+                        <option>커플</option>
+                        <option>가족</option>
+                        <option>직장인</option>
+                        <option>기타</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="form__field">
+                    <label>상담내용 <b>*</b></label>
+                    <textarea rows="5" placeholder="상담 접수가 이루어진 후 24시간 내에 연락드리겠습니다."></textarea>
+                </div>
+            </div>
+            <div class="form__policy">
+                <h4>개인정보 취급 방침(필수)</h4>
+                <iframe src="policy.html" frameborder="0"></iframe>
+                <div class="form__pol-agree">
+                    <input type="checkbox" id=chk><label for="chk"> 개인정보 취급방침을 읽었으며 이에 동의합니다.</label>
+                </div>
+                <button class="form__btn">상담신청</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>modal02_SearchBox</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* XEION CDN */
+        @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+        
+        *{ margin: 0; }
+        
+        header {
+            display: flex;
+            justify-content: center;
+            height: 80px;
+            background-color: #4a2518;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            width: 900px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .btn-search {
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+            background-color: #f3ebde;
+            font-size: 3em;
+        }
+        
+        /* modal */
+        .modal-search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0; top: -200px;
+            width: 100%;
+            height: 200px;
+            border-radius: 0 0 40% 40%;
+            background-color: #c5371e;
+            transition: 0.5s;
+        }
+        
+        .modal-search.active {
+            top: 0;
+        }
+        
+        .btn-close {
+            position: absolute;
+            right: 20px; top: 20px;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: #4a2518;
+            cursor: pointer;
+        }
+        
+        .xi-close-thin {
+            color: #fff;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .search {
+            width: 500px;
+        }
+        
+        .search .field {
+            display: flex;
+        }
+        
+        .search .field input[type=search],
+        .search .field input[type=button] {
+            padding: 18px;
+            border: none;
+            outline: none;
+        }
+        
+        .search .field input[type=search] {
+            flex: 3;
+            border-radius: 30px 0 0 30px;
+            background-color: #fff;
+        }
+        
+        .search .field input[type=search]:focus::placeholder {
+            opacity: 0;
+        }
+        
+        .search .field input[type=button] {
+            flex: 1;
+            border-radius: 0 30px 30px 0;
+            background-color: #4a2518;
+            color: #fff;
+            opacity: 0.9;
+            cursor: pointer;
+        }
+        
+        .search .field input[type=button]:hover {
+            opacity: 1;
+        }
+        
+        .hash-tag {
+            padding: 10px;
+            color: #ef8d47;
+            visibility: hidden;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="img/modal_logo.png" alt="">
+                </div>
+                <div class="btn-search">
+                    <i class="xi-search"></i>
+                </div>
+            </nav>
+        </header>
+        <section>
+            <h1>section</h1>
+        </section>
+    </div>
+    <div class="modal-search">
+        <button class="btn-close"><i class="xi-close-thin"></i></button>
+        <div class="search">
+            <div class="field">
+                <input type="search" placeholder="메뉴를 검색해보세요">
+                <input type="button" value="검색">
+            </div>
+            <p class="hash-tag">#와퍼 #신메뉴 #더블오리지널치즈버거 #치킨킹 </p>
+        </div>
+    </div>
+    
+    <script>
+        $('.btn-search').click(function(){
+            $('.modal-search').addClass('active')
+        })
+        $('.btn-close').click(function(){
+            $('.modal-search').removeClass('active')
+        })
+        
+        $('.search .field input[type=search]').focus(function(){
+            $(this).parent().next().css('visibility', 'visible')
+        }).blur(function(){
+            $(this).parent().next().css('visibility', 'hidden')
+        })
+    </script>
+</body>
+</html>

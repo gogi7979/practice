@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>form02_로그인 반응형</title>
+    <style>
+        /* Fontawesome 4.7 */
+        @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        
+        /* Web fonts */
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+        
+        /* Reset css */
+        * { margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; }
+        button { cursor: pointer; }
+        
+        /* PC version */
+        .login {
+            width: 450px;
+            padding: 50px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login h2 {
+            padding-bottom: 10px;
+            margin-bottom: 50px;
+            border-bottom: 4px solid; 
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 500;
+        }
+       
+        .login__inner {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .login__inner p {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        .login__input-box {
+            flex: 3;
+            margin-right: 10px;    
+        }
+        
+        .login__input-box input {
+            width: 100%;
+            padding: 10px 5px; 
+            box-sizing: border-box;
+        }
+        
+        .login__input-box input[type=email] {
+            margin-bottom: 10px;
+        }
+        
+        .login__btn {
+            flex: 1;
+            border-radius: 3px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .login__sns-box {
+            display: flex;
+            width: 100%;
+        }
+        
+        .login__sns-btn {
+            flex: 1;
+            padding: 10px 0;
+            margin: 0 8px;
+            border-radius: 50px;
+            border: none;
+            background-color: #333;
+            color: #333;
+        }
+        
+        .login__sns-btn:before {
+            content: '';
+            display: inline-block;
+            width: 15px; height: 15px;
+            margin-right: 5px;
+            font-family: fontawesome;
+            vertical-align: middle;
+        }
+        
+        .login__sns-btn:nth-child(1) { background-color: #ffd800; }
+        .login__sns-btn:nth-child(2) { background-color: #18ce18; color: #fff; }
+        .login__sns-btn:nth-child(3) { background-color: gainsboro;}
+        
+        .login__sns-btn:nth-child(1):before { content: '\f075'; }
+        .login__sns-btn:nth-child(2):before { content: 'N'; vertical-align: top; font-weight: bold; }
+        .login__sns-btn:nth-child(3):before { content:"\f0d5"; }
+        
+        .login__sign-box a {
+            color: orangered;
+            font-weight: 500;
+        }
+        
+        .login__sign-btn {
+            width: 100%;
+            padding: 15px 0;
+            border-radius: 50px;
+            border: 1px solid #333;
+            background-color: #fff;
+        }
+        
+        .login__sign-btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        /* Mobile version */
+        @media (max-width:768px) {
+            * {font-size: 12px;}
+            body { height:  auto; }
+            
+            .login {
+                width: 100%;
+                padding: 20px;
+                box-shadow: none;
+            }
+            
+            .login__inner {
+                flex-direction: column;
+                margin: 20px 0;
+            }
+            
+            .login__input-box {
+                margin-right: 0;
+            }
+            
+            .login__input-box input[type=email] {
+                margin-bottom: 15px;
+            }
+            
+            .login__btn {
+                padding: 15px;
+                margin-top: 15px; 
+            }
+            
+            .login__sns-box {
+                justify-content: center;
+            }
+            
+            .login__sns-btn {
+                flex: none;
+                width: 80px; height: 80px;
+                padding: 0;
+                border-radius: 100px;
+            }
+            
+            .login__sns-btn:nth-child(3) {
+                margin-bottom: 0;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h2>로그인</h2>
+        <form>
+            <div class="login__inner">
+                <div class="login__input-box">
+                    <input type="email" placeholder="아이디(이메일)">
+                    <input type="password" placeholder="비밀번호(8~20자 영문, 숫자, 특수문자 조합)">
+                </div>
+                <button class="login__btn">로그인</button>
+            </div>
+            <div class="login__inner">
+                <p>sns 계정으로 로그인하기</p>
+                <div class="login__sns-box">
+                    <button class="login__sns-btn">카카오</button>
+                    <button class="login__sns-btn">네이버</button>
+                    <button class="login__sns-btn">구글</button>
+                </div>
+            </div>
+            <div class="login__inner login__sign-box">
+                <p>회원가입하고 <a href="#none">15%할인쿠폰</a> 받으세요</p>
+                <button class="login__sign-btn">간편 회원가입하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
